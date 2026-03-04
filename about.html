@@ -51,14 +51,36 @@ padding:60px 20px;
 max-width:900px;
 margin:auto;
 text-align:center;
-line-height:1.8;
+line-height:1.9;
 }
 
-/* CONTACT BOX */
-.contact-box{
-margin-top:40px;
+.section img{
+width:100%;
+max-width:600px;
+border-radius:15px;
+margin:25px 0;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* MAP RESPONSIVE */
+.map-container{
+position:relative;
+width:100%;
+padding-bottom:56.25%;
+margin-top:20px;
+}
+
+.map-container iframe{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+border:0;
+border-radius:15px;
+}
+
+/* BUTTON */
 .btn{
 padding:12px 25px;
 margin:8px;
@@ -70,8 +92,6 @@ font-weight:500;
 transition:0.3s;
 }
 
-.btn-call{ background:#ff3b3b; }
-.btn-line{ background:#06C755; }
 .btn-facebook{ background:#1877F2; }
 
 .btn:hover{
@@ -90,7 +110,47 @@ padding:15px 18px;
 border-radius:50px;
 text-decoration:none;
 box-shadow:0 4px 12px rgba(0,0,0,0.3);
+cursor:pointer;
 }
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+z-index:999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.popup-content{
+background:white;
+width:90%;
+max-width:400px;
+margin:25% auto;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.popup-content img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.popup-content button{
+margin:5px;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.confirm{ background:#0bb34b; color:white; }
+.cancel{ background:#ff3b3b; color:white; }
 
 /* FOOTER */
 footer{
@@ -122,42 +182,76 @@ text-align:center;
 
 <h2>เกี่ยวกับเรา</h2>
 
+<img src="images/store-front.jpg" alt="หน้าร้านสปีดแก๊ส">
+
 <p>
-ห้างหุ้นส่วนจำกัด สปีดแก๊ส เป็นตัวแทนจำหน่ายแก๊สหุงต้ม ปตท. 
+ห้างหุ้นส่วนจำกัด สปีดแก๊ส เป็นตัวแทนจำหน่ายแก๊สหุงต้ม ปตท.
 ที่ให้บริการด้วยมาตรฐานความปลอดภัยสูงสุด
 เราคัดสรรถังใหม่ สะอาด ได้มาตรฐาน OR
 และตรวจสอบน้ำหนักทุกถังก่อนส่งถึงมือลูกค้า
 </p>
 
 <p>
-เราให้บริการจัดส่งแก๊สในพื้นที่อย่างรวดเร็ว ตรงเวลา 
+เราให้บริการจัดส่งแก๊สในพื้นที่อย่างรวดเร็ว ตรงเวลา
 พร้อมทีมงานที่เป็นกันเอง ซื่อสัตย์ และใส่ใจลูกค้า
 เพื่อให้ทุกบ้านมั่นใจได้ในคุณภาพและความปลอดภัย
 </p>
 
 <p>
-เปิดให้บริการทุกวันจันทร์ – เสาร์ เวลา เวลา 07:00 – 19:00 น. ปิดรับออเดอร์ตอน 18:30 น.
+เปิดให้บริการทุกวันจันทร์ – เสาร์ เวลา 07:00 – 19:00 น.
+(ปิดรับออเดอร์ 18:30 น.)
 </p>
 
-<div class="contact-box">
+<div style="margin-top:40px;">
 <h3>ติดตามข่าวสาร</h3>
-<a href="https://www.facebook.com/profile.php?id=100057535865671" 
+<a href="https://www.facebook.com/profile.php?id=100057535865671"
 class="btn btn-facebook" target="_blank">
 📲 Facebook หจก.สปีดแก๊ส
 </a>
 </div>
-<h4>Google Map</h4>
+
+<h3 style="margin-top:40px;">แผนที่ร้าน</h3>
+
+<div class="map-container">
 <iframe 
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.799916876608!2d100.62613237632148!3d13.851045586551216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d62b1e23a7eef%3A0x523d345d23076f89!2sSpeed%20Gas%20Shop%20Ptt%20Lpg!5e0!3m2!1sen!2sth!4v1772614850379!5m2!1sen!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.799916876608!2d100.62613237632148!3d13.851045586551216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d62b1e23a7eef%3A0x523d345d23076f89!2sSpeed%20Gas%20Shop%20Ptt%20Lpg!5e0!3m2!1sen!2sth!4v1772614850379!5m2!1sen!2sth">
 </iframe>
+</div>
 
 </section>
 
-<a href="tel:0818399552" class="floating-call">📞 โทรเลย</a>
+<div class="floating-call" onclick="openPopup('0818399552')">📞 โทรเลย</div>
 
+<!-- POPUP -->
+<div class="popup" id="callPopup">
+  <div class="popup-content">
+    <h3>กรุณาตรวจสอบถังที่ใช้</h3>
+    <img src="https://lh3.googleusercontent.com/d/1EyePZVBJ6RxL2120o9d73pNYoXl6nEyg" alt="โปรโมชั่น">
+    <p>ต้องการโทรออกใช่ไหม?</p>
+    <button class="confirm" onclick="confirmCall()">ยืนยันโทร</button>
+    <button class="cancel" onclick="closePopup()">ยกเลิก</button>
+  </div>
+</div>
 <footer>
 © 2026-3 สปีดแก๊ส | ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน
 </footer>
+
+<script>
+let selectedNumber = "";
+
+function openPopup(number){
+selectedNumber = number;
+document.getElementById("callPopup").style.display = "block";
+}
+
+function closePopup(){
+document.getElementById("callPopup").style.display = "none";
+}
+
+function confirmCall(){
+window.location.href = "tel:" + selectedNumber;
+}
+</script>
 
 </body>
 </html>
