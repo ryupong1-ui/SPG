@@ -62,10 +62,18 @@ margin-top:30px;
 .service-box{
 background:white;
 width:280px;
-padding:25px;
+padding:20px;
 border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 transition:0.3s;
+}
+
+.service-box img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
 }
 
 .service-box:hover{
@@ -74,23 +82,25 @@ box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 .service-box h3{
-margin-bottom:15px;
+margin-bottom:10px;
 color:#0bb34b;
 }
 
 /* TABLE */
 table{
 width:100%;
-max-width:800px;
+max-width:900px;
 margin:40px auto;
 border-collapse:collapse;
 background:white;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
+border-radius:10px;
+overflow:hidden;
 }
 
 th,td{
-padding:15px;
-border:1px solid #ddd;
+padding:12px;
+border-bottom:1px solid #eee;
 }
 
 th{
@@ -98,21 +108,24 @@ background:#0bb34b;
 color:white;
 }
 
+tr:hover{
+background:#f2fff6;
+}
+
 /* BUTTON */
 .btn{
 padding:12px 25px;
 margin:8px;
 border-radius:30px;
-text-decoration:none;
+border:none;
 color:white;
 display:inline-block;
 font-weight:500;
 transition:0.3s;
+cursor:pointer;
 }
 
 .btn-call{ background:#ff3b3b; }
-.btn-line{ background:#06C755; }
-.btn-facebook{ background:#1877F2; }
 
 .btn:hover{
 transform:translateY(-3px);
@@ -130,7 +143,47 @@ padding:15px 18px;
 border-radius:50px;
 text-decoration:none;
 box-shadow:0 4px 12px rgba(0,0,0,0.3);
+cursor:pointer;
 }
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+z-index:999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.popup-content{
+background:white;
+width:90%;
+max-width:400px;
+margin:20% auto;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.popup-content img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.popup-content button{
+margin:5px;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.confirm{ background:#0bb34b; color:white; }
+.cancel{ background:#ff3b3b; color:white; }
 
 /* FOOTER */
 footer{
@@ -165,21 +218,25 @@ text-align:center;
 <div class="services">
 
 <div class="service-box">
+<img src="images/delivery.jpg">
 <h3>🚚 จัดส่งแก๊สถึงบ้าน</h3>
 <p>บริการจัดส่งรวดเร็ว ตรงเวลา ครอบคลุมพื้นที่ใกล้เคียง</p>
 </div>
 
 <div class="service-box">
+<img src="images/store.jpg">
 <h3>🏪 จำหน่ายหน้าร้าน</h3>
 <p>ลูกค้าสามารถเข้ามาซื้อหรือเปลี่ยนถังได้โดยตรงที่ร้าน</p>
 </div>
 
 <div class="service-box">
+<img src="images/tank.jpg">
 <h3>🔄 เปลี่ยนถังใหม่มาตรฐาน</h3>
 <p>ถังสะอาด ได้มาตรฐาน OR น้ำหนักเต็มทุกถัง</p>
 </div>
 
 <div class="service-box">
+<img src="images/weight.jpg">
 <h3>⚖ ตรวจสอบน้ำหนักก่อนส่ง</h3>
 <p>มั่นใจได้ว่าน้ำหนักครบถ้วน โปร่งใส ตรวจสอบได้</p>
 </div>
@@ -191,61 +248,87 @@ text-align:center;
 <table>
 <tr>
 <th>ขนาดถัง</th>
-<th>ราคาหน้าร้าน(เปลี่ยนถัง)</th>
-<th>ราคาหน้าร้าน(ซื้อถัง)</th>
-<th>ราคาหน้าร้าน(ชื้อถังพร้อมโครง)</th>
+<th>เปลี่ยนถัง</th>
+<th>ซื้อถัง</th>
+<th>ซื้อถังพร้อมโครง</th>
 <th>ค่าบริการส่ง</th>
 <th>ค่ายก/ชั้น</th>
 </tr>
 <tr>
-<td>4 กิโลกรัม</td>
-<td>180 บาท</td>
-<td>1,500 บาท</td>
-<td>1,750 บาท</td>
-<td>10-25 บาท</td>
-<td>5 บาท</td>
+<td>4 กก.</td>
+<td>180</td>
+<td>1,500</td>
+<td>1,750</td>
+<td>10-25</td>
+<td>5</td>
 </tr>
 <tr>
-<td>7 กิโลกรัม</td>
-<td>270 บาท</td>
-<td>2,200 บาท</td>
-<td>2,700 บาท</td>
-<td>10-25 บาท</td>
-<td>5 บาท</td>
+<td>7 กก.</td>
+<td>270</td>
+<td>2,200</td>
+<td>2,700</td>
+<td>10-25</td>
+<td>5</td>
 </tr>
 <tr>
-<td>15 กิโลกรัม</td>
-<td>425 บาท</td>
-<td>2,900 บาท</td>
+<td>15 กก.</td>
+<td>425</td>
+<td>2,900</td>
 <td>-</td>
-<td>10-35 บาท</td>
-<td>10 บาท</td>
+<td>10-35</td>
+<td>10</td>
 </tr>
 <tr>
-<td>48 กิโลกรัม</td>
-<td>1360 บาท</td>
-<td>5,100 บาท</td>
+<td>48 กก.</td>
+<td>1,360</td>
+<td>5,100</td>
 <td>-</td>
-<td>20-100 บาท</td>
-<td>30 บาท</td>
+<td>20-100</td>
+<td>30</td>
 </tr>
 </table>
 
 <div style="margin-top:40px;">
 <h3>ติดต่อสั่งแก๊สได้ทันที</h3>
-
-<a href="tel:0818399552" class="btn btn-call">📞 081-839-9552</a>
-<a href="tel:0865685525" class="btn btn-call">📞 086-568-5525</a>
-
+<button class="btn btn-call" onclick="openPopup('0818399552')">📞 081-839-9552</button>
+<button class="btn btn-call" onclick="openPopup('0865685525')">📞 086-568-5525</button>
 </div>
 
 </section>
 
-<a href="tel:0818399552" class="floating-call">📞 โทรเลย</a>
+<div class="floating-call" onclick="openPopup('0818399552')">📞 โทรเลย</div>
+
+<!-- POPUP -->
+<div class="popup" id="callPopup">
+  <div class="popup-content">
+    <h3>กรุณาตรวจสอบถังที่ใช้</h3>
+    <img src="https://lh3.googleusercontent.com/d/1EyePZVBJ6RxL2120o9d73pNYoXl6nEyg" alt="โปรโมชั่น">
+    <p>ต้องการโทรออกใช่ไหม?</p>
+    <button class="confirm" onclick="confirmCall()">ยืนยันโทร</button>
+    <button class="cancel" onclick="closePopup()">ยกเลิก</button>
+  </div>
+</div>
 
 <footer>
 © 2026-3 สปีดแก๊ส | ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน
 </footer>
+
+<script>
+let selectedNumber = "";
+
+function openPopup(number){
+selectedNumber = number;
+document.getElementById("callPopup").style.display = "block";
+}
+
+function closePopup(){
+document.getElementById("callPopup").style.display = "none";
+}
+
+function confirmCall(){
+window.location.href = "tel:" + selectedNumber;
+}
+</script>
 
 </body>
 </html>
