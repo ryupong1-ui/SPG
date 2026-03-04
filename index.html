@@ -1,85 +1,142 @@
-x<!DOCTYPE html>
+New
+
+<!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>สปีดแก๊ส - ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน</title>
+<title>สปีดแก๊ส | จำหน่ายแก๊สหุงต้ม ปตท.</title>
+
+<meta name="description" content="สปีดแก๊ส จำหน่ายแก๊สหุงต้ม ปตท. ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน จัดส่งรวดเร็ว โทรสั่งได้ทันที">
+
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
     margin:0;
     font-family:'Prompt',sans-serif;
-    background:#f4fff6;
+    background:#f5fff8;
 }
+
+/* HEADER */
 header{
     background:#0bb34b;
     color:white;
     padding:20px;
     text-align:center;
 }
+
 .logo{
-    width:90px;
+    width:110px;
+    margin-bottom:10px;
 }
-nav{
-    background:#067a30;
-    padding:12px;
-    text-align:center;
-}
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-}
+
+/* HERO */
 .hero{
-    padding:60px 20px;
+    position:relative;
+    height:85vh;
+    background:url('https://i.postimg.cc/x1r4vwSj/SPG.jpg') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    background:linear-gradient(rgba(0, 128, 0, 0),rgba(0,128,0,0.75)),
-    url('https://i.postimg.cc/x1r4vwSj/SPG.jpg') center/cover;
     color:white;
 }
+
+.hero::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
 .btn{
-    padding:12px 20px;
+    padding:13px 28px;
+    margin:10px;
     border-radius:30px;
     text-decoration:none;
-    display:inline-block;
-    margin:8px;
-    font-weight:500;
     color:white;
+    display:inline-block;
+    font-weight:500;
+    transition:0.3s;
 }
+
 .btn-call{ background:#ff3b3b; }
 .btn-line{ background:#06C755; }
-.btn-facebook{ background:#1877F2; }
-.btn-appstore{ background:#99CCFF; }
-.btn-playstore{ background:#9933CC; }
+.btn-facebook{ background:#1877F2}
 
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* SECTION */
 .section{
-    padding:50px 20px;
+    padding:60px 20px;
     text-align:center;
 }
-.contact-box{
+
+.section h2{
+    margin-bottom:30px;
+}
+
+/* FEATURES */
+.features{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.feature-box{
     background:white;
     padding:25px;
-    max-width:700px;
-    margin:auto;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-iframe{
-    width:100%;
-    height:300px;
-    border-radius:10px;
-    border:0;
-    margin-top:20px;
-}
-footer{
-    background:#067a30;
-    color:white;
-    padding:15px;
-    text-align:center;
+    width:250px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* ปุ่มโทรลอย */
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+/* MAP */
+.map-container{
+    max-width:800px;
+    margin:auto;
+}
+
+iframe{
+    width:100%;
+    height:320px;
+    border-radius:12px;
+    border:0;
+}
+
+/* FLOAT CALL */
 .floating-call{
     position:fixed;
     bottom:20px;
@@ -89,7 +146,27 @@ footer{
     padding:15px 18px;
     border-radius:50px;
     text-decoration:none;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.floating-call:hover{
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+    background:#067a30;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{
+        font-size:26px;
+    }
 }
 </style>
 </head>
@@ -97,66 +174,64 @@ footer{
 <body>
 
 <header>
-    <!-- 🔰 ใส่โลโก้ร้านตรง src -->
-    <img src="https://i.postimg.cc/x1r4vwSj/SPG.jpg" class="logo">
-    <h1>สปีดแก๊ส</h1>
+    <!-- โลโก้ร้าน -->
+    <img src="https://lh3.googleusercontent.com/d/1JholT7FoApe9RuwHEsJTEquWkv_c7XJy" 
+         alt="โลโก้สปีดแก๊ส" 
+         class="logo">
+    <h1>ห้างหุ้นส่วนจำกัด สปีดแก็ส</h1>
     <p>จำหน่ายแก๊สหุงต้ม ปตท. ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน</p>
 </header>
 
-<section class="hero" id="home">
-    <h1>โทรสั่งแก๊สได้ทันที</h1>
+<section class="hero">
+    <div class="hero-content">
+        <h1>จัดส่งแก๊สด่วนถึงบ้านคุณ</h1>
+        <a href="tel:0818399552" class="btn btn-call">📞 โทรเลย 081-839-9552</a>
+        <a href="tel:0865685525" class="btn btn-call">📞 โทรเลย 086-568-5525</a>
+        <h2>ติดต่อเราได้ที่</h2>
+        <a href="https://line.me/R/ti/p/@067wyqrd" class="btn btn-line" target="_blank">📲 LINE Speedgas</a>
+        <h3>ติดตามข้าวสารได้ที่</h3>
+        <a href="https://www.facebook.com/profile.php?id=100057535865671" class="btn btn-facebook" target="_black">📲 Facebook หจก.สปีดแก็ส</a>
 
-    <!-- เบอร์มือถือ -->
-    <a href="tel:0865685525" class="btn btn-call">📱 086-568-5525</a>
-    <a href="tel:0818399552" class="btn btn-call">📱 081-839-9552</a>
 
-    <br><br>
-
-     <!-- เบอร์สำนักงาน -->
-    <a href="tel:029435818" class="btn btn-call">☎ 02-943-5818</a>
-    <a href="tel:025106189" class="btn btn-call">☎ 02-510-6189</a>
-
-    <br>
-
-    <!-- 🔽 ใส่ลิงก์จริงของคุณ -->
-    <a href="https://line.me/R/ti/p/@067wyqrd" class="btn btn-line" target="_blank">
-        📲 LINE
-    </a>
-
-    <a href="https://www.facebook.com/profile.php?id=100057535865671" class="btn btn-facebook" target="_blank">
-        👍 Facebook
-    </a>
-
-    <br><br>
-
-    <!--Mobile app-->
-    <a href="https://apps.apple.com/th/app/or-lpg/id1629566501" class="btn btn-appstore" target="_blank">
-        ดาวน์โหลด OR LPG บน App Store
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=com.pttor.ldp.customer&amp;pcampaignid=web_share" class="btn btn-playstore" target="_blank">
-        ดาวน์โหลด OR LPG บน Play Store
-    </a>
-</section>
-
-<section class="section" id="contact">
-    <div class="contact-box">
-        <h2>แผนที่ร้าน</h2>
-
-        <!-- 🔽 วิธีเอาแผนที่: ไป Google Maps > แชร์ > ฝังแผนที่ > คัดลอก iframe มาแทนที่ -->
-        <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.2153681192117!2d100.62613501036284!3d13.850983028696717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d62b1e23a7eef%3A0x523d345d23076f89!2sSpeed%20Gas%20Shop%20Ptt%20Lpg!5e0!3m2!1sen!2sth!4v1772191212149!5m2!1sen!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        <p>🕒 เปิดบริการทุกวันจันทร์ถึงเสาร์ 06:00 - 18:00 น.</p>
-        
     </div>
 </section>
 
-<a href="tel:0818399552" class="floating-call">
-    📞 โทรเลย
-</a>
+<section class="section">
+    <h2>ทำไมต้องเลือกสปีดแก๊ส</h2>
+    <div class="features">
+        <div class="feature-box">🔥 ถังใหม่ สะอาด ปลอดภัย มาตรฐาน OR</div>
+        <div class="feature-box">⚖ น้ำหนักเต็ม ตรวจสอบได้</div>
+        <div class="feature-box">🚚 จัดส่งรวดเร็ว ตรงเวลา</div>
+        <div class="feature-box">📞 บริการเป็นกันเอง</div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>ภาพบรรยากาศร้าน</h2>
+    <div class="gallery">
+        <!-- เปลี่ยนเป็นรูปจริงของร้านคุณ -->
+        <img src="https://scontent.fbkk29-8.fna.fbcdn.net/v/t39.30808-6/594075534_1322589543002229_7059061930865011549_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=ee_22Tcs_CcQ7kNvwGQPde0&_nc_oc=AdkLqxUV8kLm2ki8OlfC2y4qSB2S4H5ocqCMRWPjCFCPjUzMtZWPOvZ9pmnJDNZaUAc&_nc_zt=23&_nc_ht=scontent.fbkk29-8.fna&_nc_gid=eLIU2HBJVl-a9gj2SKnaSg&_nc_ss=8&oh=00_Afw6WB1XswRsAdGGD5-0Dyv-tR6kLtBsO8_FaunvdU-Syg&oe=69ADB077">
+        <img src="https://scontent.fbkk29-7.fna.fbcdn.net/v/t39.30808-6/594076707_1319749433286240_8440283122667623534_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=yBmq0lPaN_AQ7kNvwG8csE1&_nc_oc=Adm_NCxqhR6W6-GKKq4DMhxT-B33nupkB55UykyEcYHj7TRd_N2yqAeDMhx5fow70C4&_nc_zt=23&_nc_ht=scontent.fbkk29-7.fna&_nc_gid=cn2gMmi-pFcos9sbHTv9_w&_nc_ss=8&oh=00_AfwDzna7uZD1cvUKhRm2eTlm5KZCbW6yiV-cXzHOYXnbeQ&oe=69ADCD2B">
+        <img src="https://scontent.fbkk29-5.fna.fbcdn.net/v/t39.30808-6/594061314_1319749526619564_8223638499849327514_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=jrIWEB3ZvaMQ7kNvwFSHwlq&_nc_oc=AdkzjdOMJYfA0Glebqk6MZ79twSno10jsDGrjtJpRyLGs3g-Cp1wVCpr96PkM7Iv3R8&_nc_zt=23&_nc_ht=scontent.fbkk29-5.fna&_nc_gid=Yuby5tIc3EbPCnKMCfyfHg&_nc_ss=8&oh=00_AfykBRZWZ1My4Ol2Bv251_g1cQr2X6EMiZNyMFhbpyIwgA&oe=69ADD619">
+        <img src="https://scontent.fbkk29-6.fna.fbcdn.net/v/t39.30808-6/480575084_1097629472164905_1772464010442230197_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2a1932&_nc_ohc=Cxwcz13gbZ0Q7kNvwEpQcu1&_nc_oc=AdlLd6IzIezFzgnKlz5AUdQs7R7OBHzhqACM_-yX06NaJElEs2ftBHShkizvM8l5zfk&_nc_zt=23&_nc_ht=scontent.fbkk29-6.fna&_nc_gid=bBkX0S6wSydFU8Pj0xAinw&_nc_ss=8&oh=00_AfxDHD5H3y4Izk4xzgwzZb1rFcLP6UdJhYMd-otZC5psWw&oe=69ADD3A5">
+    </div>
+</section>
+
+<section class="section">
+    <h2>แผนที่ร้าน</h2>
+    <div class="map-container">
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.2153681192117!2d100.62613501036284!3d13.850983028696717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d62b1e23a7eef%3A0x523d345d23076f89!2sSpeed%20Gas%20Shop%20Ptt%20Lpg!5e0!3m2!1sen!2sth"
+        loading="lazy">
+        </iframe>
+        <p>🕒 เปิดบริการทุกวันจันทร์–เสาร์ 06:00 - 18:00 น.</p>
+    </div>
+</section>
+
+<a href="tel:0818399552" class="floating-call">📞 โทรเลย</a>
 
 <footer>
-© 2026 สปีดแก๊ส | ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน
+© 2026-2 สปีดแก๊ส | ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน
 </footer>
 
 </body>
