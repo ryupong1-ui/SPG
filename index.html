@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>สปีดแก๊ส | หน้าหลัก</title>
+<title>สปีดแก๊ส | ติดต่อด่วน</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -11,13 +11,13 @@
 body{
 margin:0;
 font-family:'Prompt',sans-serif;
-background:#fffffff;
+background:#ffffff;
 }
 
 /* HEADER */
 header{
 background:#0bb34b;
-color:white;
+color:#ffffff;
 padding:20px;
 text-align:center;
 }
@@ -69,11 +69,11 @@ color:white;
 display:inline-block;
 font-weight:500;
 transition:0.3s;
+border:none;
+cursor:pointer;
 }
 
 .btn-call{ background:#ff3b3b; }
-.btn-line{ background:#06C755; }
-.btn-facebook{ background:#1877F2; }
 
 .btn:hover{
 transform:translateY(-3px);
@@ -91,6 +91,53 @@ padding:15px 18px;
 border-radius:50px;
 text-decoration:none;
 box-shadow:0 4px 12px rgba(0,0,0,0.3);
+cursor:pointer;
+}
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+z-index:999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.popup-content{
+background:white;
+width:90%;
+max-width:400px;
+margin:20% auto;
+padding:20px;
+border-radius:15px;
+text-align:center;
+animation:fadeIn 0.3s ease;
+}
+
+.popup-content img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.popup-content button{
+margin:5px;
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.confirm{ background:#0bb34b; color:white; }
+.cancel{ background:#ff3b3b; color:white; }
+
+@keyframes fadeIn{
+from{transform:scale(0.8); opacity:0;}
+to{transform:scale(1); opacity:1;}
 }
 
 /* FOOTER */
@@ -106,8 +153,7 @@ text-align:center;
 <body>
 
 <header>
-<img src="https://lh3.googleusercontent.com/d/1JholT7FoApe9RuwHEsJTEquWkv_c7XJy" 
-class="logo">
+<img src="https://lh3.googleusercontent.com/d/1JholT7FoApe9RuwHEsJTEquWkv_c7XJy" class="logo">
 <h1>ห้างหุ้นส่วนจำกัด สปีดแก๊ส</h1>
 <p>จำหน่ายแก๊สหุงต้ม ปตท. ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน</p>
 </header>
@@ -123,21 +169,51 @@ class="logo">
 <section class="contact">
 <h2>📞 ติดต่อสั่งแก๊ส</h2>
 
-<a href="tel:0818399552" class="btn btn-call">
+<button class="btn btn-call" onclick="openPopup('0818399552')">
 📞 081-839-9552
-</a>
+</button>
 
-<a href="tel:0865685525" class="btn btn-call">
+<button class="btn btn-call" onclick="openPopup('0865685525')">
 📞 086-568-5525
-</a>
+</button>
 
 </section>
 
-<a href="tel:0818399552" class="floating-call">📞 โทรเลย</a>
+<div class="floating-call" onclick="openPopup('0818399552')">
+📞 โทรเลย
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="callPopup">
+  <div class="popup-content">
+    <h3>กรุณาตรวจสอบถังที่ใช้</h3>
+    <img src="https://lh3.googleusercontent.com/d/1EyePZVBJ6RxL2120o9d73pNYoXl6nEyg" alt="โปรโมชั่น">
+    <p>ต้องการโทรออกใช่ไหม?</p>
+    <button class="confirm" onclick="confirmCall()">ยืนยันโทร</button>
+    <button class="cancel" onclick="closePopup()">ยกเลิก</button>
+  </div>
+</div>
 
 <footer>
 © 2026-3 สปีดแก๊ส | ถังใหม่ สะอาด ปลอดภัย น้ำหนักมาตรฐาน
 </footer>
+
+<script>
+let selectedNumber = "";
+
+function openPopup(number){
+    selectedNumber = number;
+    document.getElementById("callPopup").style.display = "block";
+}
+
+function closePopup(){
+    document.getElementById("callPopup").style.display = "none";
+}
+
+function confirmCall(){
+    window.location.href = "tel:" + selectedNumber;
+}
+</script>
 
 </body>
 </html>
