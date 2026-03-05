@@ -147,10 +147,54 @@ color:white;
 padding:15px;
 text-align:center;
 }
+
+/* ANNOUNCEMENT */
+.announcement{
+position:fixed;
+top:20px;
+right:20px;
+background:#ff9800;
+color:white;
+padding:15px 20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:9999;
+max-width:280px;
+animation:slideIn 0.5s ease;
+}
+
+.announcement .close-btn{
+position:absolute;
+top:5px;
+right:10px;
+cursor:pointer;
+font-size:18px;
+font-weight:bold;
+}
+
+@keyframes slideIn{
+from{
+transform:translateX(120%);
+opacity:0;
+}
+to{
+transform:translateX(0);
+opacity:1;
+}
+}
 </style>
 </head>
 
 <body>
+
+<!-- ประกาศ -->
+<div class="announcement" id="announcement">
+<span class="close-btn" onclick="closeAnnouncement()">×</span>
+<b>📢 แจ้งลูกค้า</b><br>
+ร้านสปีดแก๊สหยุดให้บริการ<br>
+ทุกวันอาทิตย์<br>
+เปิดบริการวันจันทร์ - เสาร์
+</div>
 
 <header>
 <img src="https://lh3.googleusercontent.com/d/1JholT7FoApe9RuwHEsJTEquWkv_c7XJy" class="logo">
@@ -187,7 +231,7 @@ text-align:center;
 <div class="popup" id="callPopup">
   <div class="popup-content">
     <h3>กรุณาตรวจสอบถังที่ใช้</h3>
-    <img src="https://lh3.googleusercontent.com/d/16lgZ-axMftGbFrtsHM2NCH32XFWJGaGZ" alt="โปรโมชั่น">
+    <img src="https://lh3.googleusercontent.com/d/16lgZ-axMftGbFrtsHM2NCH32XFWJGaGZ">
     <p>ต้องการโทรออกใช่ไหม?</p>
     <button class="confirm" onclick="confirmCall()">ยืนยันโทร</button>
     <button class="cancel" onclick="closePopup()">ยกเลิก</button>
@@ -202,16 +246,20 @@ text-align:center;
 let selectedNumber = "";
 
 function openPopup(number){
-    selectedNumber = number;
-    document.getElementById("callPopup").style.display = "block";
+selectedNumber = number;
+document.getElementById("callPopup").style.display = "block";
 }
 
 function closePopup(){
-    document.getElementById("callPopup").style.display = "none";
+document.getElementById("callPopup").style.display = "none";
 }
 
 function confirmCall(){
-    window.location.href = "tel:" + selectedNumber;
+window.location.href = "tel:" + selectedNumber;
+}
+
+function closeAnnouncement(){
+document.getElementById("announcement").style.display="none";
 }
 </script>
 
