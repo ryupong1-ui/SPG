@@ -151,7 +151,7 @@ text-align:center;
 /* ANNOUNCEMENT */
 .announcement{
 position:fixed;
-top:20px;
+bottom:90px;
 right:20px;
 background:#ff9800;
 color:white;
@@ -159,7 +159,7 @@ padding:15px 20px;
 border-radius:12px;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 z-index:9999;
-max-width:280px;
+max-width:260px;
 animation:slideIn 0.5s ease;
 }
 
@@ -172,15 +172,30 @@ font-size:18px;
 font-weight:bold;
 }
 
+/* ลูกศรชี้ปุ่มโทร */
+.announcement::after{
+content:"";
+position:absolute;
+bottom:-10px;
+right:35px;
+border-width:10px;
+border-style:solid;
+border-color:#ff9800 transparent transparent transparent;
+}
+
 @keyframes slideIn{
 from{
-transform:translateX(120%);
+transform:translateY(30px);
 opacity:0;
 }
 to{
-transform:translateX(0);
+transform:translateY(0);
 opacity:1;
 }
+}
+
+p1 {
+  color:#ff3b3b;
 }
 </style>
 </head>
@@ -193,7 +208,10 @@ opacity:1;
 <b>📢 แจ้งลูกค้า</b><br>
 ร้านสปีดแก๊สหยุดให้บริการ<br>
 ทุกวันอาทิตย์<br>
-เปิดบริการวันจันทร์ - เสาร์
+<p1>
+  <b>📢 วันหยุดสงกรานต์</b><br>
+  ตั้งแต่วันที่ 12 - 15 เมษายน
+</p1>
 </div>
 
 <header>
@@ -229,13 +247,13 @@ opacity:1;
 
 <!-- POPUP -->
 <div class="popup" id="callPopup">
-  <div class="popup-content">
-    <h3>กรุณาตรวจสอบถังที่ใช้</h3>
-    <img src="https://lh3.googleusercontent.com/d/16lgZ-axMftGbFrtsHM2NCH32XFWJGaGZ">
-    <p>ต้องการโทรออกใช่ไหม?</p>
-    <button class="confirm" onclick="confirmCall()">ยืนยันโทร</button>
-    <button class="cancel" onclick="closePopup()">ยกเลิก</button>
-  </div>
+<div class="popup-content">
+<h3>กรุณาตรวจสอบถังที่ใช้</h3>
+<img src="https://lh3.googleusercontent.com/d/16lgZ-axMftGbFrtsHM2NCH32XFWJGaGZ">
+<p>ต้องการโทรออกใช่ไหม?</p>
+<button class="confirm" onclick="confirmCall()">ยืนยันโทร</button>
+<button class="cancel" onclick="closePopup()">ยกเลิก</button>
+</div>
 </div>
 
 <footer>
