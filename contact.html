@@ -249,6 +249,21 @@ document.getElementById("callPopup").style.display = "none";
 function confirmCall(){
 window.location.href = "tel:" + selectedNumber;
 }
+
+function downloadApp() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  if (/android/i.test(userAgent)) {
+    window.location.href = "https://play.google.com/store/apps/details?id=your.app.id";
+  } 
+  else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    window.location.href = "https://apps.apple.com/app/idXXXXXXXXX";
+  } 
+  else {
+    // กรณีเปิดบนคอม
+    window.location.href = "https://spg-three.vercel.app/contact.html";
+  }
+}
 </script>
 
 </body>
